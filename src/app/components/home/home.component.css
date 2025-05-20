@@ -1,0 +1,14 @@
+section {
+  background-color: rgb(238, 237, 192) !important;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
