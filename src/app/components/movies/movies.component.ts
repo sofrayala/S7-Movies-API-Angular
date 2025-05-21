@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { MoviesService } from '../../services/movies.service';
 import { ActivatedRoute, RouterModule, RouterLink } from '@angular/router';
@@ -21,9 +21,9 @@ export class MoviesComponent {
     this.movieService.fetchMovies();
     console.log('fetched movies:', this.movieService.movies());
 
-    //Get movies by id for movie details
-    this.movieId = this.route.snapshot.paramMap.get('id');
-    const movies = this.movieService.movies();
-    this.movie = movies.find((movie) => movie.id === Number(this.movieId));
+    //   //Get movies by id for movie details
+    //   this.movieId = this.route.snapshot.paramMap.get('id');
+    //   const movies = this.movieService.movies();
+    //   this.movie = movies.find((movie) => movie.id === Number(this.movieId));
   }
 }

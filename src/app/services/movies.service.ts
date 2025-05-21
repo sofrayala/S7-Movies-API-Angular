@@ -32,4 +32,8 @@ export class MoviesService {
         },
       });
   }
+
+  getMovieById(id: number): MovieInterface | undefined {
+    return this.movies().find((movie) => movie.id === id);
+  }
 }
