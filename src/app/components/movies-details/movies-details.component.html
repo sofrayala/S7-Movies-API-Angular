@@ -1,13 +1,18 @@
+<app-header></app-header>
 @if (movie()) {
-<h3>{{ movie()?.title }}</h3>
-<img
-  [src]="'https://image.tmdb.org/t/p/w500' + movie()?.poster_path"
-  [alt]="movie()?.title"
-  width="300"
-/>
-<p><strong>Overview:</strong> {{ movie()?.overview }}</p>
-<p><strong>Release Date:</strong> {{ movie()?.release_date }}</p>
-<p><strong>Average Vote:</strong> {{ movie()?.vote_average }}</p>
+<div class="movie-card">
+  <img
+    [src]="'https://image.tmdb.org/t/p/w500' + movie()?.poster_path"
+    [alt]="movie()?.title"
+    width="300"
+  />
+  <div class="movie-info">
+    <h3>{{ movie()?.title }}</h3>
+    <p><strong>Overview:</strong> {{ movie()?.overview }}</p>
+    <p><strong>Release Date:</strong> {{ movie()?.release_date }}</p>
+    <p>⭐{{ movie()?.vote_average }}</p>
+  </div>
+</div>
 } @else {
 <p>Movie not found.</p>
 }

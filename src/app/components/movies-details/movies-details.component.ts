@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { MovieInterface } from '../../interfaces/movie-interface';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-movies-details',
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './movies-details.component.html',
   styleUrl: './movies-details.component.css',
 })
