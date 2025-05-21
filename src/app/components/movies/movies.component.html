@@ -1,9 +1,9 @@
 <app-header></app-header>
-@if(movieService.isLoading(); as loadind){
+@if(movieService.isLoading(); as loading){
 <p>Loading movies....</p>
 }@else{
 
-<div class="movies-details">
+<div class="movies-layout">
   @for(movie of movieService.movies(); track movie.id){
   <div class="movie-card">
     <img
@@ -11,9 +11,9 @@
       [alt]="movie.title"
     />
     <h4>{{ movie.title }}</h4>
-    <p>{{ movie.release_date }}</p>
+    <!-- <p>{{ movie.release_date }}</p> -->
     <p>{{ movie.vote_average }}</p>
-    <p>{{ movie.overview }}</p>
+    <!-- <p>{{ movie.overview }}</p> -->
   </div>
   }
 </div>

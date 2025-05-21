@@ -1,0 +1,28 @@
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.movies-layout {
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  margin-top: 2rem;
+  overflow-x: hidden;
+}
+
+.movie-card {
+  width: 20%;
+  height: auto;
+  justify-items: center;
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 50%;
+  margin: auto;
+  display: block;
+  margin-bottom: 0.8rem;
+}
