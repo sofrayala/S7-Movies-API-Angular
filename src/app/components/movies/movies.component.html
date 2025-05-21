@@ -5,18 +5,16 @@
 
 <div class="movies-layout">
   @for(movie of movieService.movies(); track movie.id){
-  <div class="movie-card">
+  <a [routerLink]="['/movies/movies-detail', movie.id]" class="movie-card">
     <img
       [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
       [alt]="movie.title"
     />
     <div class="movie-info">
       <h4>{{ movie.title }}</h4>
-      <!-- <p>{{ movie.release_date }}</p> -->
       <p>⭐{{ movie.vote_average }}</p>
-      <!-- <p>{{ movie.overview }}</p> -->
     </div>
-  </div>
+  </a>
   }
 </div>
 }

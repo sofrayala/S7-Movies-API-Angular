@@ -20,8 +20,9 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   border: 2px solid rgb(241, 174, 29);
+  border-radius: 2rem;
   padding: 0.5rem;
-  box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.233);
+  box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.562);
 }
 
 p {
