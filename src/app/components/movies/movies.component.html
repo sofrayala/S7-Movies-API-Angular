@@ -1,2 +1,20 @@
 <app-header></app-header>
-<p>Movies API will go here</p>
+@if(movieService.isLoading(); as loadind){
+<p>Loading movies....</p>
+}@else{
+
+<div class="movies-details">
+  @for(movie of movieService.movies(); track movie.id){
+  <div class="movie-card">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      [alt]="movie.title"
+    />
+    <h4>{{ movie.title }}</h4>
+    <p>{{ movie.release_date }}</p>
+    <p>{{ movie.vote_average }}</p>
+    <p>{{ movie.overview }}</p>
+  </div>
+  }
+</div>
+}
