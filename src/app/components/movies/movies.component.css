@@ -5,19 +5,28 @@ body {
 }
 .movies-layout {
   display: flex;
-
   flex-wrap: wrap;
-  align-items: center;
-  justify-items: center;
+  justify-content: center;
   margin-top: 2rem;
   overflow-x: hidden;
+  gap: 1rem;
 }
 
 .movie-card {
-  width: 20%;
-  height: auto;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
+  align-items: center;
   margin-bottom: 1rem;
+  border: 2px solid rgb(241, 174, 29);
+  padding: 0.5rem;
+  box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.233);
+}
+
+p {
+  margin-top: 0.5rem;
+  justify-self: center;
 }
 
 img {
@@ -25,4 +34,8 @@ img {
   margin: auto;
   display: block;
   margin-bottom: 0.8rem;
+}
+
+h4 {
+  font-size: larger;
 }
