@@ -11,6 +11,7 @@ export class MoviesService {
   movies = signal<MovieInterface[]>([]);
   isLoading = signal<boolean>(false);
   currentPage = signal<number>(1);
+  totalPages = signal<number>(1);
 
   constructor(private http: HttpClient) {}
 
@@ -27,6 +28,7 @@ export class MoviesService {
         next: (response) => {
           this.movies.set(response.results);
           this.isLoading.set(false);
+          this.totalPages.set(response.total_pages);
         },
         error: (err) => {
           console.log(`Failed fetching movies`, err);
@@ -36,8 +38,10 @@ export class MoviesService {
   }
 
   nextPage(): void {
-    this.currentPage.update((page) => page + 1);
-    this.fetchMovies();
+    if (this.currentPage() < this.totalPages()) {
+      this.currentPage.update((page) => page + 1);
+      this.fetchMovies();
+    }
   }
 
   prevPage() {

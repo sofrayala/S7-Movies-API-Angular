@@ -18,10 +18,14 @@
   }
 </div>
 <div class="pagination-buttons">
-  <button (click)="prevPage()" [disabled]="movieService.currentPage() === 1">
-    Previous
-  </button>
+  @if (movieService.currentPage()>1){
+
+  <button (click)="prevPage()">Previous</button>
+  }
   <span>Page {{ movieService.currentPage() }}</span>
+  @if(movieService.currentPage() < movieService.totalPages()){
+
   <button (click)="nextPage()">Next</button>
+  }
 </div>
 }
