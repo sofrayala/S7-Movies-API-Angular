@@ -52,7 +52,9 @@ span {
   font-weight: 500;
   font-size: medium;
 }
-
+i {
+  transition: all 0.2s linear;
+}
 i:hover {
   color: rgb(255, 136, 0);
   cursor: pointer;
