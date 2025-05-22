@@ -40,3 +40,20 @@ img {
 h4 {
   font-size: larger;
 }
+
+.pagination-buttons {
+  margin: 3rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  margin: 0rem 1rem;
+  font-weight: 500;
+  font-size: medium;
+}
+
+i:hover {
+  color: rgb(255, 136, 0);
+  cursor: pointer;
+}

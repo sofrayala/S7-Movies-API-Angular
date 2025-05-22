@@ -20,12 +20,19 @@
 <div class="pagination-buttons">
   @if (movieService.currentPage()>1){
 
-  <button (click)="prevPage()">Previous</button>
+  <i
+    class="bi bi-arrow-left-circle-fill"
+    style="font-size: 1.5rem"
+    (click)="prevPage()"
+  ></i>
   }
   <span>Page {{ movieService.currentPage() }}</span>
   @if(movieService.currentPage() < movieService.totalPages()){
-
-  <button (click)="nextPage()">Next</button>
+  <i
+    class="bi bi-arrow-right-circle-fill"
+    style="font-size: 1.5rem"
+    (click)="nextPage()"
+  ></i>
   }
 </div>
 }
