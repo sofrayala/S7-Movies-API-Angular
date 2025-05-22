@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { MovieInterface } from '../interfaces/movie-interface';
 import { MovieApiResponse } from '../interfaces/movie-api-response';
-import { inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +10,7 @@ import { inject } from '@angular/core';
 export class MoviesService {
   movies = signal<MovieInterface[]>([]);
   isLoading = signal<boolean>(false);
+  currentPage = signal<number>(1);
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +19,9 @@ export class MoviesService {
 
     this.http
       .get<MovieApiResponse>(
-        `${environment.apiUrl}discover/movie?api_key=${environment.api_key}`
+        `${environment.apiUrl}discover/movie?api_key=${
+          environment.api_key
+        }&page=${this.currentPage()}`
       )
       .subscribe({
         next: (response) => {
@@ -31,6 +33,18 @@ export class MoviesService {
           this.isLoading.set(false);
         },
       });
+  }
+
+  nextPage(): void {
+    this.currentPage.update((page) => page + 1);
+    this.fetchMovies();
+  }
+
+  prevPage() {
+    if (this.currentPage() > 1) {
+      this.currentPage.update((page) => page - 1);
+      this.fetchMovies();
+    }
   }
 
   getMovieById(id: number): MovieInterface | undefined {

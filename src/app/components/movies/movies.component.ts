@@ -10,20 +10,19 @@ import { ActivatedRoute, RouterModule, RouterLink } from '@angular/router';
   styleUrl: './movies.component.css',
 })
 export class MoviesComponent {
-  movieId: string | null = null;
-  movie: any;
-
   constructor(
     public movieService: MoviesService,
     private route: ActivatedRoute
   ) {
     //Fetch movies
     this.movieService.fetchMovies();
-    console.log('fetched movies:', this.movieService.movies());
+  }
 
-    //   //Get movies by id for movie details
-    //   this.movieId = this.route.snapshot.paramMap.get('id');
-    //   const movies = this.movieService.movies();
-    //   this.movie = movies.find((movie) => movie.id === Number(this.movieId));
+  nextPage() {
+    this.movieService.nextPage();
+  }
+
+  prevPage() {
+    this.movieService.prevPage();
   }
 }

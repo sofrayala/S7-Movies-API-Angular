@@ -17,4 +17,11 @@
   </a>
   }
 </div>
+<div class="pagination-buttons">
+  <button (click)="prevPage()" [disabled]="movieService.currentPage() === 1">
+    Previous
+  </button>
+  <span>Page {{ movieService.currentPage() }}</span>
+  <button (click)="nextPage()">Next</button>
+</div>
 }
