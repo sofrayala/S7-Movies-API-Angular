@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}
