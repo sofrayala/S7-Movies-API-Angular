@@ -20,8 +20,8 @@ export class MoviesService {
 
     this.http
       .get<MovieApiResponse>(
-        `${environment.apiUrl}discover/movie?api_key=${
-          environment.api_key
+        `${environment.tmbd.apiUrl}discover/movie?api_key=${
+          environment.tmbd.api_key
         }&page=${this.currentPage()}`
       )
       .subscribe({
