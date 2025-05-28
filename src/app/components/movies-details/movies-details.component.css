@@ -12,7 +12,7 @@ body {
   justify-items: center;
   align-items: center;
   justify-self: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
   border: 2px solid rgb(241, 174, 29);
   border-radius: 2rem;
   padding: 0.5rem;
@@ -53,8 +53,8 @@ h4 {
 }
 
 .cast-img {
-  width: 80%;
-  border-radius: 1rem;
+  width: 85%;
+  border-radius: 0.5rem;
 }
 .cast-card {
   width: 12%;
@@ -64,7 +64,7 @@ h4 {
   align-items: center;
   margin-bottom: 1rem;
   border-radius: 1rem;
-  box-shadow: 0.5px 0.5px 1px rgba(32, 32, 32, 0.562);
+  box-shadow: 1px 1px 1.5px rgba(129, 129, 129, 0.863);
   margin: 0.5rem;
 }
 
