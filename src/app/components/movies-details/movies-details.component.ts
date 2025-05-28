@@ -21,6 +21,13 @@ export class MoviesDetailsComponent {
     if (movieId) {
       const found = this.movieService.getMovieById(Number(movieId));
       this.movie.set(found);
+
+      //Fetch cast for each movie
+      this.movieService.fetchMovieCast(Number(movieId));
     }
+  }
+
+  get cast() {
+    return this.movieService.cast();
   }
 }

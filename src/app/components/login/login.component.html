@@ -2,7 +2,7 @@
 <section>
   <form [formGroup]="loginForm">
     <h3>Log in</h3>
-    <div class="email-div">
+    <div>
       <label for="email">Email</label>
       <input type="email" formControlName="email" />
       @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){
@@ -14,7 +14,7 @@
 
       } }
     </div>
-    <div class="password-div">
+    <div>
       <label for="password">Password</label>
       <input type="password" formControlName="password" />
       @if(loginForm.get('password')?.invalid &&

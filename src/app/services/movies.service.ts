@@ -9,6 +9,8 @@ import { MovieApiResponse } from '../interfaces/movie-api-response';
 })
 export class MoviesService {
   movies = signal<MovieInterface[]>([]);
+  cast = signal<any[]>([]);
+
   isLoading = signal<boolean>(false);
   currentPage = signal<number>(1);
   totalPages = signal<number>(1);
@@ -34,6 +36,17 @@ export class MoviesService {
           console.log(`Failed fetching movies`, err);
           this.isLoading.set(false);
         },
+      });
+  }
+
+  fetchMovieCast(movieId: number) {
+    return this.http
+      .get<{ cast: any[] }>(
+        `${environment.tmbd.apiUrl}movie/${movieId}/credits?api_key=${environment.tmbd.api_key}`
+      )
+      .subscribe({
+        next: (res) => this.cast.set(res.cast ?? []),
+        error: () => this.cast.set([]),
       });
   }
 

@@ -20,8 +20,7 @@ form {
 h3 {
   font-size: x-large;
 }
-.email-div,
-.password-div {
+div {
   display: flex;
   flex-direction: column;
   width: 80%;
