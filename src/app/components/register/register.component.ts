@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  FormBuilder,
+  Validators,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from '../header/header.component';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,31 +19,47 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  registrationForm: FormGroup;
+  //toast vetnana para avisar
+  //inject
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  constructor(private fb: FormBuilder) {
-    this.registrationForm = this.fb.group(
-      {
-        name: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(5)]],
-        confirmPassword: ['', Validators.required],
-      },
-      { validators: this.passwordMatchValidator }
-    );
-  }
+  registrationForm = this.fb.nonNullable.group(
+    {
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      confirmPassword: ['', Validators.required],
+    },
+    { validators: this.passwordMatchValidator }
+  );
 
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password')?.value;
-    const confirmPassword = form.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
+  passwordMatchValidator(): ValidatorFn {
+    return (group: AbstractControl): ValidationErrors | null => {
+      const password = group.get('password')?.value;
+      const confirmPassword = group.get('confirmPassword')?.value;
+      return password === confirmPassword ? null : { mismatch: true };
+    };
   }
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      alert('Registration Successful');
+      const { email, password } = this.registrationForm.getRawValue();
+
+      this.authService.register(email, password).subscribe({
+        next: () => {
+          alert('Registration Successful');
+          this.router.navigateByUrl('/home');
+        },
+        error: (error) => {
+          console.error('registration error', error);
+          alert('Registration failed');
+        },
+      });
     } else {
-      alert('Registration not valid');
+      this.registrationForm.markAllAsTouched();
+      alert('Form not valid, please check all fields');
     }
   }
 }
