@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { AuthService } from '../../services/auth.service';
 import { RouterLink, Router } from '@angular/router';
@@ -26,14 +25,26 @@ export class LoginComponent {
     const { email, password } = this.loginForm.getRawValue();
 
     this.authService.login(email, password).subscribe({
-      next: (UserCredential) => {
-        this.router.navigateByUrl('/home');
-        console.log('Logged in:', UserCredential);
+      next: () => {
+        const redirectUrl = sessionStorage.getItem('redirectAfterlogin');
+        if (redirectUrl) {
+          sessionStorage.removeItem('redirectAfterLogin');
+          this.router.navigateByUrl(redirectUrl);
+        } else {
+          this.router.navigateByUrl('/movies');
+        }
       },
-      error: (error) => {
-        console.error('Email login error', error);
-        alert(error.message);
-      },
+      error: (error) => {},
     });
   }
 }
+
+//dentro del subscribe:
+// next: (UserCredential) => {
+//   this.router.navigateByUrl('/home');
+//   console.log('Logged in:', UserCredential);
+// },
+// error: (error) => {
+//   console.error('Email login error', error);
+//   alert(error.message);
+// }

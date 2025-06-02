@@ -10,8 +10,14 @@
     </div>
 
     <div id="right-div">
-      <p [routerLink]="['/login']">Log in</p>
-      <p [routerLink]="['/register']">Register</p>
+      <ng-container *ngIf="authService.user$ | async as user; else loggedOut">
+        <span>Hi, {{ user.displayName || user.email }}</span>
+        <p (click)="logout()">Log out</p>
+      </ng-container>
+      <ng-template #loggedOut>
+        <p [routerLink]="['/login']">Log in</p>
+        <p [routerLink]="['/register']">Register</p>
+      </ng-template>
     </div>
   </section>
 </body>
