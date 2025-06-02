@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { AuthService } from '../../services/auth.service';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [HeaderComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -38,13 +38,3 @@ export class LoginComponent {
     });
   }
 }
-
-//dentro del subscribe:
-// next: (UserCredential) => {
-//   this.router.navigateByUrl('/home');
-//   console.log('Logged in:', UserCredential);
-// },
-// error: (error) => {
-//   console.error('Email login error', error);
-//   alert(error.message);
-// }

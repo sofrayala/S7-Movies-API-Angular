@@ -29,5 +29,9 @@
     </div>
 
     <button type="submit" [disabled]="loginForm.invalid">Log in</button>
+    <div class="register-div">
+      <p>Not registered yet?</p>
+      <a [routerLink]="['/register']">Register here</a>
+    </div>
   </form>
 </section>

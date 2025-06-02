@@ -49,3 +49,9 @@ button:hover {
   cursor: pointer;
   background-color: rgb(255, 136, 0);
 }
+
+.register-div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}

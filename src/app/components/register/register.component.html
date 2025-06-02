@@ -35,5 +35,9 @@
       }
     </div>
     <button type="submit" [disabled]="registrationForm.invalid">Sign up</button>
+    <div class="register-div">
+      <p>Already registered?</p>
+      <a [routerLink]="['/login']">Log in</a>
+    </div>
   </form>
 </section>
