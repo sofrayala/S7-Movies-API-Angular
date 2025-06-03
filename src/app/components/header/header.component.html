@@ -11,7 +11,9 @@
 
     <div id="right-div" class="desktop-nav">
       @if(user()){
-      <span>Hi, {{ user()?.displayName || user()?.email }}</span>
+      <span class="bi bi-person-circle"
+        >&nbsp;Hi, {{ user()?.displayName || user()?.email }}</span
+      >
       <p (click)="logout()">Log out</p>
       }@else {
       <p [routerLink]="['/login']">Log in</p>
@@ -31,7 +33,9 @@
     </button>
     <mat-menu #menu="matMenu">
       @if(user()){
-      <span>Hi, {{ user()?.displayName || user()?.email }}</span>
+      <span class="bi bi-person-circle"
+        >&nbsp; Hi, {{ user()?.displayName || user()?.email }}</span
+      >
       <button mat-menu-item>
         <p (click)="logout()">Log out</p>
       </button>

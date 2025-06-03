@@ -43,9 +43,9 @@ p:hover {
   }
 
   span {
-    background-color: rgb(196, 195, 194);
     padding: 0.2rem;
-    font-size: medium;
+    font-size: large;
+    color: white;
   }
 
   #burger-button {

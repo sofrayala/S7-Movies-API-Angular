@@ -45,9 +45,9 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      const { email, password } = this.registrationForm.getRawValue();
+      const { email, password, name } = this.registrationForm.getRawValue();
 
-      this.authService.register(email, password).subscribe({
+      this.authService.register(email, password, name).subscribe({
         next: () => {
           alert('Registration Successful');
           this.router.navigateByUrl('/home');
