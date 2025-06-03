@@ -14,6 +14,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  errorMessage = '';
 
   loginForm = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,7 +35,15 @@ export class LoginComponent {
           this.router.navigateByUrl('/movies');
         }
       },
-      error: (error) => {},
+      error: (error) => {
+        console.log(error.code);
+        if (error && error.code === 'auth/invalid-credential') {
+          this.errorMessage =
+            'User or password not valid. If you are not registered yet, please register first';
+        } else {
+          this.errorMessage = 'Log in error. Please try again later';
+        }
+      },
     });
   }
 }
