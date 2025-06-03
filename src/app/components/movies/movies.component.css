@@ -60,8 +60,8 @@ i:hover {
   cursor: pointer;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 900px) {
   .movie-card {
-    width: 80%;
+    width: 50%;
   }
 }

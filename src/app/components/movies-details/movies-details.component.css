@@ -83,3 +83,18 @@ section {
   background-color: rgba(194, 192, 192, 0.205);
   border-radius: 0.5rem;
 }
+
+@media (max-width: 900px) {
+  .movie-card {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .cast-card {
+    width: 40%;
+  }
+}
