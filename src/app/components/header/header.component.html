@@ -1,15 +1,15 @@
 <body>
   <section>
-    <div id="left-div">
+    <div id="left-div" class="desktop-nav">
       <p [routerLink]="['/home']">Home</p>
       <p [routerLink]="['/movies']">Movies</p>
     </div>
 
-    <div id="center-div">
+    <div id="center-div" class="desktop-nav">
       <i class="bi bi-camera-reels-fill" style="font-size: xx-large"></i>
     </div>
 
-    <div id="right-div">
+    <div id="right-div" class="desktop-nav">
       @if(user()){
       <span>Hi, {{ user()?.displayName || user()?.email }}</span>
       <p (click)="logout()">Log out</p>
@@ -19,26 +19,23 @@
       }
     </div>
 
-    <!-- ///////////////////// -->
-    <!-- <button
+    <!-- ///////////Mobile Menu////////// -->
+    <button
+      class="burger"
+      id="burger-button"
       matIconButton
       [matMenuTriggerFor]="menu"
       aria-label="Example icon-button with a menu"
     >
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <p [routerLink]="['/home']">Home</p>
-      </button>
-      <button mat-menu-item disabled>
-        <p [routerLink]="['/movies']">Movies</p>
-      </button> -->
-
-    <!-- ////// -->
-    <!-- @if(user()){
+      @if(user()){
       <span>Hi, {{ user()?.displayName || user()?.email }}</span>
-      <p (click)="logout()">Log out</p>
+      <button mat-menu-item>
+        <p (click)="logout()">Log out</p>
+      </button>
+
       }@else {
       <button mat-menu-item>
         <p [routerLink]="['/login']">Log in</p>
@@ -46,8 +43,14 @@
       <button mat-menu-item>
         <p [routerLink]="['/register']">Register</p>
       </button>
-      } -->
-    <!-- /////// -->
-    <!-- </mat-menu> -->
+      }
+
+      <button mat-menu-item>
+        <p [routerLink]="['/home']">Home</p>
+      </button>
+      <button mat-menu-item disabled>
+        <p [routerLink]="['/movies']">Movies</p>
+      </button>
+    </mat-menu>
   </section>
 </body>

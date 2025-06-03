@@ -24,3 +24,37 @@ p {
 p:hover {
   transform: scale(1.5rem);
 }
+
+.burger {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+    position: absolute;
+  }
+
+  span {
+    background-color: orange;
+    padding: 0.2rem;
+    font-size: medium;
+  }
+
+  #burger-button {
+    background-color: rgb(255, 136, 0);
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    color: white;
+    padding: 0.2rem;
+  }
+
+  #burger-button:hover {
+    cursor: pointer;
+    transform: scale(1rem);
+  }
+}
