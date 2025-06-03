@@ -9,7 +9,7 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent],
+      imports: [RegisterComponent, ReactiveFormsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RegisterComponent);

@@ -10,14 +10,44 @@
     </div>
 
     <div id="right-div">
-      <ng-container *ngIf="authService.user$ | async as user; else loggedOut">
-        <span>Hi, {{ user.displayName || user.email }}</span>
-        <p (click)="logout()">Log out</p>
-      </ng-container>
-      <ng-template #loggedOut>
-        <p [routerLink]="['/login']">Log in</p>
-        <p [routerLink]="['/register']">Register</p>
-      </ng-template>
+      @if(user()){
+      <span>Hi, {{ user()?.displayName || user()?.email }}</span>
+      <p (click)="logout()">Log out</p>
+      }@else {
+      <p [routerLink]="['/login']">Log in</p>
+      <p [routerLink]="['/register']">Register</p>
+      }
     </div>
+
+    <!-- ///////////////////// -->
+    <!-- <button
+      matIconButton
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <p [routerLink]="['/home']">Home</p>
+      </button>
+      <button mat-menu-item disabled>
+        <p [routerLink]="['/movies']">Movies</p>
+      </button> -->
+
+    <!-- ////// -->
+    <!-- @if(user()){
+      <span>Hi, {{ user()?.displayName || user()?.email }}</span>
+      <p (click)="logout()">Log out</p>
+      }@else {
+      <button mat-menu-item>
+        <p [routerLink]="['/login']">Log in</p>
+      </button>
+      <button mat-menu-item>
+        <p [routerLink]="['/register']">Register</p>
+      </button>
+      } -->
+    <!-- /////// -->
+    <!-- </mat-menu> -->
   </section>
 </body>

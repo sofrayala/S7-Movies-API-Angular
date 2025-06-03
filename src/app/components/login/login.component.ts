@@ -26,7 +26,7 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: () => {
-        const redirectUrl = sessionStorage.getItem('redirectAfterlogin');
+        const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
         if (redirectUrl) {
           sessionStorage.removeItem('redirectAfterLogin');
           this.router.navigateByUrl(redirectUrl);
