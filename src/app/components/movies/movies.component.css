@@ -13,16 +13,20 @@ body {
 }
 
 .movie-card {
-  width: 18%;
+  width: 16%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  margin-bottom: 1rem;
-  border: 2px solid rgb(241, 174, 29);
+  /* margin-bottom: 0.2rem; */
+  border: 1px solid rgb(241, 174, 29);
   border-radius: 2rem;
-  padding: 0.5rem;
+  padding: 1.5rem 0rem;
   box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.562);
+}
+
+.movie-card:hover {
+  border: 2.2px solid rgb(241, 174, 29);
 }
 
 p {
@@ -31,14 +35,18 @@ p {
 }
 
 img {
-  width: 50%;
+  width: 60%;
   margin: auto;
   display: block;
   margin-bottom: 0.8rem;
 }
 
+.movie-info {
+  height: 25%;
+}
+
 h4 {
-  font-size: larger;
+  font-size: medium;
 }
 
 .pagination-buttons {

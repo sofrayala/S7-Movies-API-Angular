@@ -5,7 +5,7 @@ section {
   height: calc(100vh - 68px);
 }
 form {
-  width: 45%;
+  width: 40%;
   border: 2px solid rgb(241, 174, 29);
   border-radius: 2rem;
   padding: 0.5rem;
@@ -18,7 +18,13 @@ form {
 }
 
 h3 {
-  font-size: x-large;
+  font-size: large;
+}
+
+label,
+p,
+a {
+  font-size: small;
 }
 div {
   display: flex;
@@ -27,8 +33,15 @@ div {
 }
 
 input {
-  padding: 0.3rem;
+  padding: 0.2rem;
   border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px rgba(97, 97, 97, 0.411);
+  border: 1px solid rgb(95, 93, 93);
+}
+
+input:hover {
+  box-shadow: 1px 1px 1px rgb(255, 136, 0);
+  border: 1px solid rgb(255, 136, 0);
 }
 
 small {
@@ -38,10 +51,10 @@ small {
 button {
   width: 100px;
   color: black;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-radius: 0.5rem;
   background-color: rgba(250, 247, 247, 0.877);
-  font-size: medium;
+  font-size: small;
   transition: all 0.2s linear;
 }
 button:hover {
