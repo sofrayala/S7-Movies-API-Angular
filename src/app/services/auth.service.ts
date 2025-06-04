@@ -12,8 +12,8 @@ import {
   UserCredential,
   onAuthStateChanged,
   updateProfile,
+  setPersistence,
 } from '@angular/fire/auth';
-import { setPersistence } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',

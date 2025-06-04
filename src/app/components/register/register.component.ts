@@ -19,8 +19,6 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  //toast vetnana para avisar
-  //inject
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);

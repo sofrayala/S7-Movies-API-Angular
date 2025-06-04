@@ -24,7 +24,6 @@ export const routes: Routes = [
     ],
   },
 
-  // { path: 'movies', component: MoviesComponent, canActivate: [authGuard] },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

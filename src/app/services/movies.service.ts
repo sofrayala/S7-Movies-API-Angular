@@ -33,12 +33,15 @@ export class MoviesService {
           this.totalPages.set(response.total_pages);
         },
         error: (err) => {
-          console.log(`Failed fetching movies`, err);
+          alert(`Failed fetching movies`);
           this.isLoading.set(false);
         },
       });
   }
 
+  getMovieById(id: number): MovieInterface | undefined {
+    return this.movies().find((movie) => movie.id === id);
+  }
   fetchMovieCast(movieId: number) {
     return this.http
       .get<{ cast: any[] }>(
@@ -62,9 +65,5 @@ export class MoviesService {
       this.currentPage.update((page) => page - 1);
       this.fetchMovies();
     }
-  }
-
-  getMovieById(id: number): MovieInterface | undefined {
-    return this.movies().find((movie) => movie.id === id);
   }
 }
