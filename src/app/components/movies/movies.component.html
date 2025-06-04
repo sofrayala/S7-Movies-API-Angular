@@ -10,9 +10,10 @@
       [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
       [alt]="movie.title"
     />
+
     <div class="movie-info">
-      <h4>{{ movie.title }}</h4>
-      <p>⭐{{ movie.vote_average }}</p>
+      <p class="movie-title">{{ movie.title }}</p>
+      <p class="movie-rating">⭐{{ movie.vote_average }}</p>
     </div>
   </a>
   }
